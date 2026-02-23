@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0d0d" />
   <title>About Us — Premier Language Institute</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<div class="nav-mobile-overlay" id="navOverlay"></div>
 <nav>
   <a href="index.html" class="logo">Premier <span>Language</span></a>
-  <ul>
-    <li><a href="index.html#programs">Programmes</a></li>
-    <li><a href="index.html#faculty">Faculty</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="index.html#testimonials">Testimonials</a></li>
-    <li><a href="index.html#enroll" class="nav-cta">Enroll Now</a></li>
+  <ul id="navMenu">
+    <li><a href="index.html#programs" onclick="closeMenu()">Programmes</a></li>
+    <li><a href="index.html#faculty" onclick="closeMenu()">Faculty</a></li>
+    <li><a href="about.html" class="active" onclick="closeMenu()">About</a></li>
+    <li><a href="index.html#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="index.html#enroll" class="nav-cta" onclick="closeMenu()">Enroll Now</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ═══════════════════════ PAGE HERO ═══════════════════════ -->
@@ -70,37 +75,37 @@
       <div class="value-number">01</div>
       <div class="value-icon">🎯</div>
       <h3>Academic Rigour</h3>
-      <p>We hold ourselves to the highest academic standards in everything we do — from curriculum design to lesson delivery to assessment. Our programmes are evidence-based, independently reviewed, and continuously refined to reflect the latest advances in language acquisition research.</p>
+      <p>We hold ourselves to the highest academic standards in everything we do — from curriculum design to lesson delivery to assessment. Our programmes are evidence-based, independently reviewed, and continuously refined.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-number">02</div>
       <div class="value-icon">❤️</div>
       <h3>Student-Centred Learning</h3>
-      <p>Behind every enrolment is a person with specific goals, challenges, and circumstances. We never apply a one-size-fits-all approach. Every student at PLI receives an individual assessment, a personalised learning plan, and ongoing support tailored to their progress.</p>
+      <p>Every student at PLI receives an individual assessment, a personalised learning plan, and ongoing support tailored to their progress. We never apply a one-size-fits-all approach.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-number">03</div>
       <div class="value-icon">🌍</div>
       <h3>Global Perspective</h3>
-      <p>Our classrooms bring together students from dozens of cultures and countries. We actively cultivate this diversity as a pedagogical strength. Learning English at PLI means learning to communicate across cultures — a skill as valuable as the language itself.</p>
+      <p>Our classrooms bring together students from dozens of cultures and countries. We actively cultivate this diversity as a pedagogical strength — learning to communicate across cultures is as valuable as the language itself.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-number">04</div>
       <div class="value-icon">📊</div>
       <h3>Measurable Results</h3>
-      <p>We make commitments to outcomes, not intentions. Our student progression data is tracked, reviewed, and published transparently. If a student is not meeting targets, our faculty intervenes proactively — adjusting approach, providing additional support, and ensuring no one is left behind.</p>
+      <p>We make commitments to outcomes, not intentions. Our student progression data is tracked, reviewed, and published transparently. If a student is not meeting targets, our faculty intervenes proactively.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-number">05</div>
       <div class="value-icon">🤝</div>
       <h3>Professional Integrity</h3>
-      <p>We operate with complete transparency in our admissions, pricing, and programme standards. We do not overpromise, and we do not make claims we cannot substantiate. The PLI reputation has been built over fifteen years of consistently doing what we say we will do.</p>
+      <p>We operate with complete transparency in our admissions, pricing, and programme standards. The PLI reputation has been built over fifteen years of consistently doing what we say we will do.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-number">06</div>
       <div class="value-icon">✨</div>
       <h3>Lifelong Community</h3>
-      <p>Graduating from Premier Language Institute does not mean leaving it behind. Our alumni network spans 45 countries and continues to grow. We offer ongoing resources, career support, and community events to ensure that the PLI relationship extends far beyond the classroom.</p>
+      <p>Our alumni network spans 45 countries and continues to grow. We offer ongoing resources, career support, and community events to ensure that the PLI relationship extends far beyond the classroom.</p>
     </div>
   </div>
 </section>
@@ -113,7 +118,6 @@
     <p class="section-sub" style="margin: 0 auto;">The milestones that define Premier Language Institute — from a single classroom to a globally recognised institution.</p>
   </div>
   <div class="timeline">
-
     <div class="timeline-item reveal">
       <div class="tl-content">
         <div class="tl-year">2009</div>
@@ -123,7 +127,6 @@
       <div class="tl-empty"></div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-empty"></div>
       <div class="tl-content">
@@ -133,7 +136,6 @@
       </div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-content">
         <div class="tl-year">2014</div>
@@ -143,7 +145,6 @@
       <div class="tl-empty"></div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-empty"></div>
       <div class="tl-content">
@@ -153,7 +154,6 @@
       </div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-content">
         <div class="tl-year">2018</div>
@@ -163,7 +163,6 @@
       <div class="tl-empty"></div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-empty"></div>
       <div class="tl-content">
@@ -173,27 +172,24 @@
       </div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-content">
         <div class="tl-year">2022</div>
         <h3>EAQUALS Full Membership</h3>
-        <p>Premier Language Institute is accepted as a full member of EAQUALS — the European quality network for language education — following a rigorous inspection of our facilities, teaching standards, and student outcomes.</p>
+        <p>Premier Language Institute is accepted as a full member of EAQUALS — the European quality network for language education — following a rigorous inspection of our facilities and teaching standards.</p>
       </div>
       <div class="tl-empty"></div>
       <div class="tl-dot"></div>
     </div>
-
     <div class="timeline-item reveal">
       <div class="tl-empty"></div>
       <div class="tl-content">
         <div class="tl-year">2025</div>
         <h3>12,000+ Graduates &amp; Looking Ahead</h3>
-        <p>We celebrate our 12,000th graduate — and look ahead with ambition. New programmes, expanded online offerings, and a growing global alumni network mark the beginning of the next chapter for Premier Language Institute.</p>
+        <p>We celebrate our 12,000th graduate and look ahead with ambition. New programmes, expanded online offerings, and a growing global alumni network mark the next chapter for PLI.</p>
       </div>
       <div class="tl-dot"></div>
     </div>
-
   </div>
 </section>
 
@@ -202,7 +198,7 @@
   <div class="reveal">
     <span class="section-label">Quality Assurance</span>
     <h2 class="section-title">Accredited &amp; Recognised</h2>
-    <p class="section-sub" style="margin: 0 auto; color: rgba(245,240,232,0.6);">The Premier Language Institute standard is not self-declared. It is verified, independently, by the most respected authorities in English language education.</p>
+    <p class="section-sub" style="margin: 0 auto; color: rgba(245,240,232,0.6);">The Premier Language Institute standard is verified independently by the most respected authorities in English language education.</p>
   </div>
   <div class="accred-grid reveal">
     <div class="accred-item">
@@ -218,7 +214,7 @@
     <div class="accred-item">
       <div class="accred-logo">🏛️</div>
       <div class="accred-name">British Council Partner</div>
-      <div class="accred-desc">Recognised partner institution since 2014. Our quality frameworks are formally endorsed by the British Council.</div>
+      <div class="accred-desc">Recognised partner institution since 2014. Quality frameworks formally endorsed by the British Council.</div>
     </div>
     <div class="accred-item">
       <div class="accred-logo">⭐</div>
@@ -233,7 +229,7 @@
   <div class="reveal">
     <span class="section-label">The People Behind PLI</span>
     <h2 class="section-title">Our Faculty &amp; Leadership</h2>
-    <p class="section-sub">Premier Language Institute employs only credentialed, experienced educators. Every member of our faculty holds at least one internationally recognised teaching qualification — most hold two or more.</p>
+    <p class="section-sub">Premier Language Institute employs only credentialed, experienced educators. Every member of our faculty holds at least one internationally recognised teaching qualification.</p>
   </div>
   <div class="about-team-grid">
     <div class="teacher-card reveal">
@@ -291,7 +287,7 @@
 <section class="about-cta-strip">
   <div class="reveal">
     <h2>Ready to Pursue <em>Excellence</em><br>in English?</h2>
-    <p>Speak with our admissions team today. We will help you identify the right programme, answer every question, and guide you through enrolment — at no obligation.</p>
+    <p>Speak with our admissions team today. We will help you identify the right programme and guide you through enrolment — at no obligation.</p>
   </div>
   <div class="about-cta-btns reveal">
     <a href="index.html#enroll" class="btn-primary">Request a Free Consultation</a>
@@ -343,6 +339,7 @@
 </footer>
 
 <script>
+  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -352,7 +349,34 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+  // Mobile menu
+  const menu = document.getElementById('navMenu');
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('navOverlay');
+
+  function toggleMenu() {
+    menu.classList.contains('mobile-open') ? closeMenu() : openMenu();
+  }
+  function openMenu() {
+    menu.classList.add('mobile-open');
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    setTimeout(() => menu.classList.add('slide-in'), 10);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('slide-in');
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    setTimeout(() => menu.classList.remove('mobile-open'), 350);
+    document.body.style.overflow = '';
+  }
+  overlay.addEventListener('click', closeMenu);
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
 </script>
 </body>
-
 </html>
