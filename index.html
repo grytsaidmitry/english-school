@@ -3,21 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f0e8" />
   <title>Premier Language Institute — Excellence in English Education</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<div class="nav-mobile-overlay" id="navOverlay"></div>
 <nav>
   <a href="index.html" class="logo">Premier <span>Language</span></a>
-  <ul>
-    <li><a href="index.html#programs">Programmes</a></li>
-    <li><a href="index.html#faculty">Faculty</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="index.html#testimonials">Testimonials</a></li>
-    <li><a href="index.html#enroll" class="nav-cta">Enroll Now</a></li>
+  <ul id="navMenu">
+    <li><a href="index.html#programs" onclick="closeMenu()">Programmes</a></li>
+    <li><a href="index.html#faculty" onclick="closeMenu()">Faculty</a></li>
+    <li><a href="about.html" onclick="closeMenu()">About</a></li>
+    <li><a href="index.html#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="index.html#enroll" class="nav-cta" onclick="closeMenu()">Enroll Now</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
@@ -321,6 +326,7 @@
 </footer>
 
 <script>
+  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -331,15 +337,44 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
 
+  // Form submit
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    btn.textContent = '✓ Received — our admissions team will be in touch within 24 hours.';
+    btn.textContent = '✓ Received — we\'ll be in touch within 24 hours.';
     btn.style.background = '#c9a84c';
     btn.style.color = '#0d0d0d';
     btn.disabled = true;
   }
+
+  // Mobile menu
+  const menu = document.getElementById('navMenu');
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('navOverlay');
+
+  function toggleMenu() {
+    menu.classList.contains('mobile-open') ? closeMenu() : openMenu();
+  }
+  function openMenu() {
+    menu.classList.add('mobile-open');
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    setTimeout(() => menu.classList.add('slide-in'), 10);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('slide-in');
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    setTimeout(() => menu.classList.remove('mobile-open'), 350);
+    document.body.style.overflow = '';
+  }
+  overlay.addEventListener('click', closeMenu);
+
+  // Close menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
 </script>
 </body>
-
 </html>
