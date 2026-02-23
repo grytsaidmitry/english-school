@@ -10,7 +10,7 @@
 <body>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
-<div class="nav-mobile-overlay" id="navOverlay"></div>
+
 <nav>
   <a href="index.html" class="logo">Premier <span>Language</span></a>
   <ul id="navMenu">
@@ -314,7 +314,7 @@
       <ul>
         <li><a href="#">📍 1 Institute Square</a></li>
         <li><a href="#">📞 +1 (555) 0123-456</a></li>
-        <li><a href="#">✉️ admissions@pli.edu</a></li>
+        <li><a href="#">✉️ <span class="__cf_email__" data-cfemail="eb8a8f8682989882848598ab9b8782c58e8f9e">[email&#160;protected]</span></a></li>
         <li><a href="#">💬 Live Enquiry</a></li>
       </ul>
     </div>
@@ -325,7 +325,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -369,12 +369,13 @@
     setTimeout(() => menu.classList.remove('mobile-open'), 350);
     document.body.style.overflow = '';
   }
-  overlay.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
 
-  // Close menu on resize to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMenu();
-  });
-</script>
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMenu();
+    });
+  </script>
 </body>
+
 </html>
