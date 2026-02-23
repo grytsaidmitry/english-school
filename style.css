@@ -546,54 +546,65 @@ footer {
   width: 40px; height: 40px;
   cursor: pointer; background: none; border: none; padding: 4px;
   z-index: 300;
+  position: relative;
 }
 .nav-hamburger span {
   display: block; width: 100%; height: 2px;
   background: var(--ink);
-  transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s, background 0.3s;
   transform-origin: center;
 }
+.nav-hamburger.open span { background: var(--cream); }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile nav overlay */
-.nav-mobile-overlay {
-  display: none;
-  position: fixed; inset: 0; z-index: 150;
-  background: rgba(13,13,13,0.6);
-  backdrop-filter: blur(4px);
-  opacity: 0; transition: opacity 0.3s;
-}
-.nav-mobile-overlay.open { opacity: 1; }
+/* Mobile nav overlay — not used in fullscreen mode */
+.nav-mobile-overlay { display: none; pointer-events: none; }
 
-/* Mobile drawer */
+/* Mobile full-screen menu */
 nav ul.mobile-open {
   display: flex !important;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 0; right: 0; bottom: 0;
-  width: min(320px, 85vw);
-  background: var(--cream);
+  inset: 0;
+  width: 100vw; height: 100vh;
+  background: var(--ink);
   z-index: 200;
-  padding: 5rem 2rem 2rem;
+  padding: 2rem;
   gap: 0;
-  box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.35s ease, transform 0.35s ease;
   overflow-y: auto;
 }
-nav ul.mobile-open.slide-in { transform: translateX(0); }
-nav ul.mobile-open li { border-bottom: 1px solid var(--border); }
+nav ul.mobile-open.slide-in { opacity: 1; transform: scale(1); }
+nav ul.mobile-open li {
+  width: 100%; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
 nav ul.mobile-open li a {
-  display: block; padding: 1.1rem 0;
-  font-size: 1rem; letter-spacing: 0.04em;
+  display: block; padding: 1.4rem 0;
+  font-size: 1.3rem; letter-spacing: 0.06em;
+  color: var(--cream) !important;
+  transition: color 0.2s;
 }
-nav ul.mobile-open li:last-child { border-bottom: none; margin-top: 1.5rem; }
+nav ul.mobile-open li a:hover { color: var(--gold) !important; }
+nav ul.mobile-open li:last-child {
+  border-bottom: none; margin-top: 2rem; width: auto;
+}
 nav ul.mobile-open .nav-cta {
-  display: block; text-align: center;
-  padding: 1rem !important;
+  display: inline-block;
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  padding: 1rem 2.5rem !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.08em;
 }
+/* Hamburger bars turn white when menu is open (dark bg) */
+.nav-hamburger.open span { background: var(--cream); }
 
 /* =============================================
    TABLET — 1024px
