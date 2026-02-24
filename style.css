@@ -888,9 +888,14 @@ nav ul.mobile-open .nav-cta {
    TABLET — 1024px
    ============================================= */
 @media (max-width: 1024px) {
-  /* About story */
-  .about-story { grid-template-columns: 1fr; gap: 3rem; }
-  .story-card-stack { height: 320px; }
+
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teachers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   /* Timeline */
   .timeline::before { display: none; }
@@ -912,11 +917,29 @@ nav ul.mobile-open .nav-cta {
    TABLET PORTRAIT — 768px
    ============================================= */
 @media (max-width: 768px) {
-  /* Nav */
-  nav { padding: 1rem 5%; }
-  nav ul:not(.mobile-open) { display: none; }
-  .nav-hamburger { display: flex; }
-  .nav-mobile-overlay { display: block; }
+
+  .teachers {
+    padding: 4rem 5%;
+  }
+
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .leader-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .leader-photo {
+    margin: 0 auto 1.5rem;
+  }
+
+  .teachers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
 
   /* Hero */
   .hero {
@@ -985,9 +1008,27 @@ nav ul.mobile-open .nav-cta {
    MOBILE — 480px
    ============================================= */
 @media (max-width: 480px) {
-  /* Nav */
-  nav { padding: 0.9rem 4%; }
-  .logo { font-size: 1.15rem; }
+
+  .teachers {
+    padding: 3.5rem 4%;
+  }
+
+  .teachers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .teacher-name {
+    font-size: 0.95rem;
+  }
+
+  .teacher-role {
+    font-size: 0.68rem;
+  }
+
+  .teacher-bio {
+    font-size: 0.78rem;
+  }
 
   /* Hero */
   .hero { padding: 6rem 4% 3.5rem; }
