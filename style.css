@@ -344,142 +344,35 @@ nav ul li a.active { color: var(--gold); }
 .stat-item .desc { font-size: 0.83rem; opacity: 0.55; letter-spacing: 0.05em; margin-top: 0.4rem; }
 
 /* =============================================
-   TEACHERS SECTION
+   TEACHERS
    ============================================= */
-.teachers {
-  padding: 6rem 5%;
-  background: var(--white);
-}
-
-/* ===== Leadership (Co-Founder / Director) ===== */
-
-.leadership-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  margin: 3rem 0 4rem;
-}
-
-.leader-card {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 2rem;
-  align-items: center;
-  background: var(--cream);
-  color: var(--ink);
-  padding: 2.5rem;
-  border-left: 4px solid var(--gold);
-  transition: 0.3s ease;
-}
-
-.leader-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-.leader-photo {
-  width: 180px;
-  height: 180px;
-  overflow: hidden;
-}
-
-.leader-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.leader-role {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 0.5rem;
-}
-
-.leader-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 900;
-  margin-bottom: 0.8rem;
-}
-
-.leader-info p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  opacity: 0.8;
-}
-
-/* ===== Teachers Grid ===== */
-
-.teachers-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.teacher-card {
-  text-align: center;
-}
-
+.teachers { padding: 6rem 5%; background: var(--white); }
+.teachers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.teacher-card { text-align: center; }
 .teacher-photo {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--cream);
-  margin-bottom: 1rem;
-  overflow: hidden;
-  position: relative;
+  width: 100%; aspect-ratio: 1;
+  background: var(--cream); margin-bottom: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
 }
-
 .teacher-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
   transition: transform 0.4s ease;
 }
-
 .teacher-card:hover .teacher-photo img {
   transform: scale(1.04);
 }
-
 .teacher-photo::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px; background: var(--gold);
+  transform: scaleX(0); transition: transform 0.3s;
 }
-
-.teacher-card:hover .teacher-photo::after {
-  transform: scaleX(1);
-}
-
-.teacher-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.teacher-role {
-  font-size: 0.75rem;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: 0.2rem;
-}
-
-.teacher-bio {
-  font-size: 0.82rem;
-  color: #666;
-  margin-top: 0.5rem;
-  line-height: 1.6;
-}
+.teacher-card:hover .teacher-photo::after { transform: scaleX(1); }
+.teacher-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+.teacher-role { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
+.teacher-bio { font-size: 0.82rem; color: #666; margin-top: 0.5rem; line-height: 1.6; }
 
 /* =============================================
    TESTIMONIALS
@@ -888,14 +781,9 @@ nav ul.mobile-open .nav-cta {
    TABLET — 1024px
    ============================================= */
 @media (max-width: 1024px) {
-
-  .leadership-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .teachers-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  /* About story */
+  .about-story { grid-template-columns: 1fr; gap: 3rem; }
+  .story-card-stack { height: 320px; }
 
   /* Timeline */
   .timeline::before { display: none; }
@@ -917,29 +805,11 @@ nav ul.mobile-open .nav-cta {
    TABLET PORTRAIT — 768px
    ============================================= */
 @media (max-width: 768px) {
-
-  .teachers {
-    padding: 4rem 5%;
-  }
-
-  .leadership-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .leader-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .leader-photo {
-    margin: 0 auto 1.5rem;
-  }
-
-  .teachers-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
+  /* Nav */
+  nav { padding: 1rem 5%; }
+  nav ul:not(.mobile-open) { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-mobile-overlay { display: block; }
 
   /* Hero */
   .hero {
@@ -1008,27 +878,9 @@ nav ul.mobile-open .nav-cta {
    MOBILE — 480px
    ============================================= */
 @media (max-width: 480px) {
-
-  .teachers {
-    padding: 3.5rem 4%;
-  }
-
-  .teachers-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .teacher-name {
-    font-size: 0.95rem;
-  }
-
-  .teacher-role {
-    font-size: 0.68rem;
-  }
-
-  .teacher-bio {
-    font-size: 0.78rem;
-  }
+  /* Nav */
+  nav { padding: 0.9rem 4%; }
+  .logo { font-size: 1.15rem; }
 
   /* Hero */
   .hero { padding: 6rem 4% 3.5rem; }
