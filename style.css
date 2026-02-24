@@ -443,38 +443,90 @@ footer {
    ABOUT PAGE — Page Hero
    ============================================= */
 .page-hero {
-  background: var(--ink); color: var(--cream);
   padding: 10rem 5% 6rem;
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
+
+  /* Фото Праги + затемнение */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.726)),
+    url("img/prague-about.jpg") center/cover no-repeat;
+
+  color: var(--cream);
 }
+
+/* Золотое декоративное свечение */
 .page-hero::before {
   content: '';
-  position: absolute; left: -5%; top: -20%;
-  width: 60vw; height: 140%;
-  background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 65%);
+  position: absolute;
+  left: -5%;
+  top: -20%;
+  width: 60vw;
+  height: 140%;
+  background: radial-gradient(ellipse at center,
+      rgba(201, 168, 76, 0.12) 0%,
+      transparent 65%);
   pointer-events: none;
+  z-index: 1;
 }
-.page-hero-inner { max-width: 800px; }
+
+/* Контент поверх фона */
+.page-hero>* {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-inner {
+  max-width: 800px;
+}
+
 .page-hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.05;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
   animation: fadeUp 0.6s ease both;
 }
-.page-hero h1 em { font-style: italic; color: var(--gold); }
+
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
 .page-hero p {
-  font-size: 1.15rem; line-height: 1.8; opacity: 0.7; max-width: 620px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.85;
+  max-width: 620px;
   animation: fadeUp 0.6s 0.15s ease both;
 }
+
 .page-hero-breadcrumb {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-  opacity: 0.45; margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 2rem;
   animation: fadeUp 0.5s ease both;
 }
-.page-hero-breadcrumb a { color: inherit; text-decoration: none; }
-.page-hero-breadcrumb a:hover { color: var(--gold-light); opacity: 1; }
-.page-hero-breadcrumb span { color: var(--gold); }
+
+.page-hero-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-hero-breadcrumb a:hover {
+  color: var(--gold-light);
+  opacity: 1;
+}
+
+.page-hero-breadcrumb span {
+  color: var(--gold);
+}
 
 /* =============================================
    ABOUT — Our Story
