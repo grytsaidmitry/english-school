@@ -5,14 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
 :root {
-  --ink:        #0d0d0d;
-  --cream:      #f5f0e8;
+  --ink: #0d0d0d;
+  --cream: #f5f0e8;
   --cream-dark: #ede7d9;
-  --gold:       #c9a84c;
-  --gold-light: #e8d08a;
-  --white:      #ffffff;
-  --muted:      #666666;
-  --border:     rgba(0,0,0,0.09);
+
+  /* Oxford Blue palette */
+  --gold: #0b3d91;
+  /* основной Oxford Blue */
+  --gold-light: #4f79c6;
+  /* светлый университетский синий */
+
+  --white: #ffffff;
+  --muted: #666666;
+  --border: rgba(0, 0, 0, 0.09);
 }
 
 /* ── Reset ── */
