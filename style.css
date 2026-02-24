@@ -121,73 +121,171 @@ nav ul li a.active { color: var(--gold); }
    ============================================= */
 .hero {
   min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 0 5%; padding-top: 80px;
-  position: relative; overflow: hidden;
+  padding: 0 5%;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+
+  /* Фон Праги + затемнение */
+  background:
+    linear-gradient(rgba(255, 240, 153, 0.233), rgba(10, 10, 10, 0.6)),
+    url("img/prague.jpg") center/cover no-repeat;
+
+  color: var(--white);
 }
+
+/* Золотое декоративное свечение */
 .hero::before {
   content: '';
-  position: absolute; right: -10%; top: -10%;
-  width: 70vw; height: 110vh;
-  background: radial-gradient(ellipse at center, #e8d08a18 0%, transparent 70%);
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  width: 70vw;
+  height: 110vh;
+  background: radial-gradient(ellipse at center, #e8d08a25 0%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
 }
+
+/* Контент поверх фона */
+.hero>* {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-badge {
   display: inline-block;
-  background: var(--gold); color: var(--ink);
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 0.4rem 1rem; margin-bottom: 1.5rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.5rem;
   animation: fadeUp 0.6s ease both;
 }
+
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.05;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
   animation: fadeUp 0.6s 0.1s ease both;
 }
-.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
 .hero-lead {
-  font-size: 1.05rem; line-height: 1.75; color: #444;
-  max-width: 480px; margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(165, 165, 165, 0.85);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
   animation: fadeUp 0.6s 0.2s ease both;
 }
+
 .hero-btns {
-  display: flex; gap: 1rem;
+  display: flex;
+  gap: 1rem;
   animation: fadeUp 0.6s 0.3s ease both;
 }
 
 /* Hero visual card */
 .hero-visual {
-  position: relative; display: flex; justify-content: center; align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: fadeIn 1s 0.4s ease both;
 }
+
 .hero-card-main {
-  background: var(--ink); color: var(--cream);
-  padding: 3rem; width: 360px;
-  position: relative; z-index: 2;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 3rem;
+  width: 360px;
+  position: relative;
+  z-index: 2;
   box-shadow: 30px 30px 0 var(--gold);
 }
+
 .hero-card-main .stat {
-  font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--gold);
 }
+
 .hero-card-main .stat-label {
-  font-size: 0.83rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; opacity: 0.65;
+  font-size: 0.83rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  opacity: 0.65;
 }
-.hero-card-main hr { border: none; border-top: 1px solid #2a2a2a; margin: 1.5rem 0; }
-.mini-stats { display: flex; gap: 2rem; }
-.mini-stat .n { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; }
-.mini-stat .l { font-size: 0.73rem; opacity: 0.55; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.hero-card-main hr {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 1.5rem 0;
+}
+
+.mini-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.mini-stat .n {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.mini-stat .l {
+  font-size: 0.73rem;
+  opacity: 0.55;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .floating-pill {
-  position: absolute; background: var(--white);
-  padding: 0.75rem 1.15rem; font-size: 0.8rem; font-weight: 500;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.11);
-  display: flex; align-items: center; gap: 0.5rem;
+  position: absolute;
+  background: var(--ink);
+  padding: 0.75rem 1.15rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(255, 230, 0, 0.308);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   animation: float 3s ease-in-out infinite;
 }
-.pill-1 { top: 5%; right: -5%; }
-.pill-2 { bottom: 10%; left: -8%; animation-delay: 1.5s; }
-.pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+.pill-1 {
+  top: 5%;
+  right: -5%;
+}
+
+.pill-2 {
+  bottom: 10%;
+  left: -8%;
+  animation-delay: 1.5s;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
 
 /* =============================================
    COURSES
