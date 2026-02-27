@@ -362,44 +362,72 @@ I would recommend him to anyone thinking of studying English!!"</p>
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
 
-  // Form submit — sends to Zapier → Google Sheets
+  // ═══════════════════════════════════════════════════════════════
+  // ⚙️  HOW TO CONNECT TO GOOGLE SHEETS:
+  //
+  //  STEP 1 — Open your Google Sheet
+  //  STEP 2 — Click: Extensions → Apps Script
+  //  STEP 3 — Delete everything and paste this code:
+  //
+  //    function doPost(e) {
+  //      var sheet = SpreadsheetApp
+  //                    .getActiveSpreadsheet()
+  //                    .getActiveSheet();
+  //      sheet.appendRow([
+  //        e.parameter.submitted,
+  //        e.parameter.name,
+  //        e.parameter.email,
+  //        e.parameter.phone,
+  //        e.parameter.programme
+  //      ]);
+  //      return ContentService
+  //               .createTextOutput('OK')
+  //               .setMimeType(ContentService.MimeType.TEXT);
+  //    }
+  //
+  //  STEP 4 — Click Save (💾), then Deploy → New Deployment
+  //           Type: Web App
+  //           Execute as: Me
+  //           Who has access: Anyone
+  //  STEP 5 — Copy the Web App URL
+  //  STEP 6 — Paste it below, replacing PASTE_YOUR_APPS_SCRIPT_URL_HERE
+  // ═══════════════════════════════════════════════════════════════
+
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw-630CmdH0WOkFDPNEXbnbknDL53piZnuMtHWJgtUc43RAwss6BYfM9h1SyfRiN3kgSA/exec';
+
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('button');
     const inputs = form.querySelectorAll('input, select');
 
-    const data = {
-      name:      form.querySelector('input[type="text"]').value.trim(),
-      email:     form.querySelector('input[type="email"]').value.trim(),
-      phone:     form.querySelector('input[type="tel"]').value.trim(),
-      programme: form.querySelector('select').value,
-      submitted: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Prague' })
-    };
-
     btn.textContent = 'Sending…';
     btn.disabled = true;
     inputs.forEach(i => i.disabled = true);
 
-    // ⚙️  Replace the URL below with your Zapier Webhook URL
-    const ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/351629467/u09wo6d/';
+    // Build form-encoded payload — this is the only method that
+    // works reliably with Google Apps Script via no-cors fetch
+    const payload = new URLSearchParams({
+      name: form.querySelector('input[type="text"]').value.trim(),
+      email: form.querySelector('input[type="email"]').value.trim(),
+      phone: form.querySelector('input[type="tel"]').value.trim(),
+      programme: form.querySelector('select').value,
+      submitted: new Date().toLocaleString('en-GB', { timeZone: 'Europe/Prague' })
+    });
 
     try {
-      await fetch(ZAPIER_WEBHOOK, {
+      await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        mode: 'no-cors',   // required — Apps Script redirects; response is opaque but data arrives
+        body: payload      // URLSearchParams → Apps Script reads via e.parameter.*
       });
-      btn.textContent = '✓ Received — we\'ll be in touch within 24 hours.';
-      btn.style.background = '#0b3d91';
-      btn.style.color = '#fff';
     } catch (err) {
-      // Still show success to user — log error silently
-      console.error('Zapier error:', err);
-      btn.textContent = '✓ Received — we\'ll be in touch within 24 hours.';
-      btn.style.background = '#0b3d91';
-      btn.style.color = '#fff';
+      console.error('Submission error:', err);
     }
+
+    btn.textContent = '✓ Received — we\'ll be in touch within 24 hours.';
+    btn.style.background = '#0b3d91';
+    btn.style.color = '#fff';
   }
 
   // Mobile menu — fullscreen
@@ -424,7 +452,7 @@ I would recommend him to anyone thinking of studying English!!"</p>
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768) closeMenu();
   });
-  </script>
+</script>
 </body>
 
 </html>
