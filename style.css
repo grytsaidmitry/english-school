@@ -7,6 +7,7 @@
 :root {
   --ink: #0d0d0d;
   --cream: #f5f0e8;
+  --creams: #fffdf1;
   --cream-dark: #ede7d9;
 
   /* Oxford Blue palette */
@@ -1166,7 +1167,7 @@ nav ul.mobile-open .nav-cta {
    ============================================= */
 .pricing-section {
   padding: 6rem 5%;
-  background: var(--cream);
+  background: var(--creams);
 }
 .pricing-section > .reveal {
   text-align: center;
